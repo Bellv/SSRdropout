@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block headline %}
+Add Member
+{% endblock %}
+{% block body %}
+<div class="ui grid">
+    <div class="row">
+        <div class="eleven wide column">
+            <div class="column">
+                <div class="ui raised segment">
+                    <a class="ui red ribbon large label">SSRDropout</a><span><b>บ้านทองเฟ้อ</b></span>
+                        <div style="margin-top: 3%">
+                            <form class="ui form" method="post" action="." enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                <div class="field">
+                                    <label>{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endfor %}
+                                <button class="ui blue button" type="submit">Save</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="four wide column">
+            <button class="ui basic button fluid">
+                <a href="{% url 'list_all_member' %}">Back</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
