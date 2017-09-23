@@ -8,25 +8,22 @@
         <link href="{% static 'Semantic-master/semantic.css' %}" rel="stylesheet">
         <link href="{% static 'custom.css' %}" rel="stylesheet">
     </head>
-    <body style="background-image: url({% static '/images/background.jpg' %});">
-        <div class="ui menu">
-            <div class="ui grid container">
-                <div class="three wide column">
-                    <img width="100%
-                    %" src="{% static 'images/logo.png' %}" style="margin-left: 5%">
-                </div>
-                <div class="six wide column fluid" style="margin-top: 0.5%">
-                    <div class="ui menu">
-                        <a class="item">Guild</a>
-                        <a class="item">Member</a>
-                        <a class="item">Guildwar</a>
-                        <a class="item">Extra</a>
+    <body style="background-image: url({% static '/images/background.jpg' %}); background-position: top">
+        <div class="ui main container" style="background-image: url({% static '/images/background-in.jpg' %}); min-height: 100%; ">
+                <div class="ui grid relaxed container" style="margin-top: 1%">
+                    <div class="four wide column">
+                        <img width=100%" src="{% static 'images/logo.png' %}" style="margin-left: 5%">
+                    </div>
+                    <div class="six wide column fluid" style="margin-top: 0.5%">
+                        <div class="ui stackable menu" style="text-align: center">
+                            <a class="item" style="width: 25%;">Guild</a>
+                            <a class="item" style="width: 25%;">Member</a>
+                            <a class="item" style="width: 25%;">Guildwar</a>
+                            <a class="item" style="width: 25%;">Extra</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="ui main container" 
-        style="background-color: #e3f4f7; min-height: 100%; background-position: center 46px;">
+            <!-- </div> -->
             <div class="ui grid">
                 <div class="one wide column"></div>
                 <div class="thirteen wide column">
