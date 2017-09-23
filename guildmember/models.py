@@ -37,23 +37,8 @@ class Member(models.Model):
         default='deeja'
     )
 
-    GB_CLASS_CHOICE = (
-        ('fighter', 'Fighter'),
-        ('berserker', 'Berserker' ),
-        ('spartan', 'Spartan'),
-        ('sage', 'Sage' ),
-        ('warlock', 'Warlock'),
-        ('bandit_tyloon', 'Bandit Tyloon' ),
-        ('chaos_ruler', 'Chaos Ruler'),
-        ('luchador', 'Luchador' ),
-        ('nighthound', 'Nighthound'),
-        ('elysian', 'Elysian'),
-        ('apsaras', 'Apsaras'),
-    )
-
     gb_class = models.CharField(
         max_length=20,
-        choices=GB_CLASS_CHOICE,
         default='fighter'
     )
 
