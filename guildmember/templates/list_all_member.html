@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block headline %}
-Member
+Members
 {% endblock %}
 
 {% block body %}
 <div class="ui grid">
     <div class="row">
-        <div class="twelve wide column">
+        <div class="eleven wide column">
             <div class="column">
                 <div class="ui raised segment">
                 <a class="ui red ribbon large label">SSRDroupout</a><span><b>บ้านทองเฟ้อ</b></span>
@@ -25,10 +25,11 @@ Member
                 </div>
             </div>
         </div>
-        <div class="four wide column">
+        <div class="five wide column">
             <button class="ui basic button fluid">
                 <a href="{% url 'add_member' %}">Add Member</button>
             </a>
+            <img style="margin-top: 5%" src="/static/decoration/clordia.jpeg">
         </div>
     </div>
 </div>

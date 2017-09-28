@@ -20,7 +20,7 @@ class AddMemberForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddMemberForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'input'
-        self.fields['name'].label = 'Name'
+        self.fields['name'].label = 'Name *'
 
         self.fields['description'].widget.attrs['class'] = 'input'
         self.fields['description'].label = 'Description'
