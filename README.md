@@ -2,4 +2,4 @@
 
 SSRDropOut
 
-Granblue website for our Guid
+Granblue website for our Guild.
