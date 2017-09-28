@@ -22,7 +22,8 @@ urlpatterns = [
         name='inactive_member'
     ),
     url(
-        r'^personalmember/$',
+        r'^(?P<member_name>[A-Za-z_/,\.-]+)/$',
+        # r'^personalmember/$',
         PersonalMemberView.as_view(),
         name='personal_member'
     )

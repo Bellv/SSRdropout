@@ -7,7 +7,7 @@ from ..models import Member
 class PersonalMemberView(TemplateView):
     template = 'personal_member.html'
 
-    def get(self, request):
+    def get(self, request, **kwargs):
         members = Member.objects.all().filter(status='active')
 
         return render(
