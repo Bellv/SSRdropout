@@ -9,6 +9,7 @@ class AddMemberForm(forms.ModelForm):
             'name',
             'description',
             'gb_name',
+            'gb_gender',
             'gb_id',
             'gb_class',
             'gb_waifu',
@@ -29,7 +30,7 @@ class AddMemberForm(forms.ModelForm):
         self.fields['gb_name'].label = 'Granblue Fantasy Name'
 
         self.fields['gb_gender'].widget.attrs['class'] = 'input'
-        self.fields['gb_gender'].label = 'Gender'
+        self.fields['gb_gender'].label = 'Danjou-San Gender'
 
         self.fields['gb_id'].widget.attrs['class'] = 'input'
         self.fields['gb_id'].label = 'Granblue Fantasy ID'
@@ -45,6 +46,7 @@ class AddMemberForm(forms.ModelForm):
 
         self.fields['discord'].widget.attrs['class'] = 'input'
         self.fields['discord'].label = 'Discord'
+
 
 class InactiveMemberForm(forms.ModelForm):
     class Meta:

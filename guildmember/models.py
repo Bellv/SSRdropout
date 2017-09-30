@@ -27,14 +27,14 @@ class Member(models.Model):
     )
 
     GB_GENDER_CHOICE = (
-        ('gran', 'Gran' ),
+        ('gran', 'Gran'),
         ('deeja', 'Deeja'),
     )
 
     gb_gender = models.CharField(
         max_length=20,
         choices=GB_GENDER_CHOICE,
-        default='Gran'
+        default='gran'
     )
 
     gb_class = models.CharField(
@@ -100,6 +100,18 @@ class Image(models.Model):
         max_length=20,
         choices=GB_CATAGORY_CHOICE,
         default='Extra'
+    )
+
+    GB_GENDER_CHOICE = (
+        ('gran', 'Gran'),
+        ('deeja', 'Deeja'),
+        ('none', 'None')
+    )
+
+    gb_gender = models.CharField(
+        max_length=20,
+        choices=GB_GENDER_CHOICE,
+        default='None'
     )
 
     path =  models.CharField(
