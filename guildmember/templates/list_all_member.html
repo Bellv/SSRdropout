@@ -16,7 +16,7 @@ Members
                         <div class="item" style="margin-top: 3%">
                             <img class="ui avatar image" src="/static/images/member_list/deeja.jpg">
                                 <div class="content">
-                                    <a class="header" href="{% url 'personal_member' member.name %}">{{member.name}}</a>
+                                    <a class="header" href="{% url 'personal_member' member.id member.name  %}">{{member.name}}</a>
                                     <div class="description">{{member.description}}</div>
                                     </div>
                         </div>

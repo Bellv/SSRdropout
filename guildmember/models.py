@@ -26,15 +26,15 @@ class Member(models.Model):
         blank=True
     )
 
-    GB_CHARACTER_CHOICE = (
-        ('deeja', 'Deeja'),
+    GB_GENDER_CHOICE = (
         ('gran', 'Gran' ),
+        ('deeja', 'Deeja'),
     )
 
-    gb_character = models.CharField(
+    gb_gender = models.CharField(
         max_length=20,
-        choices=GB_CHARACTER_CHOICE,
-        default='deeja'
+        choices=GB_GENDER_CHOICE,
+        default='Gran'
     )
 
     gb_class = models.CharField(
@@ -79,3 +79,36 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+class Image(models.Model):
+    name = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False,
+        unique=True
+    )
+
+    GB_CATAGORY_CHOICE = (
+        ('gbclass', 'Class'),
+        ('character', 'Character'),
+        ('weapon', 'Weapon' ),
+        ('summon', 'Summon'),
+        ('extra', 'Extra' ),
+    )
+
+    catagory = models.CharField(
+        max_length=20,
+        choices=GB_CATAGORY_CHOICE,
+        default='Extra'
+    )
+
+    path =  models.CharField(
+        max_length=1000,
+        null=False,
+        blank=False,
+        unique=True
+    )
+
+    def __str__(self):
+        catagoryandname = f'{self.catagory}-{self.name}'
+        return catagoryandname
