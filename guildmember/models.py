@@ -7,120 +7,216 @@ class Member(models.Model):
         null=False,
         blank=False
     )
-
     description = models.CharField(
         max_length=200,
         null=True,
         blank=True
     )
-
     gb_name = models.CharField(
         max_length=50,
         null=True,
         blank=True
     )
-
     gb_id = models.CharField(
         max_length=10,
         null=True,
         blank=True
     )
-
     GB_GENDER_CHOICE = (
         ('gran', 'Gran'),
         ('deeja', 'Deeja'),
     )
-
     gb_gender = models.CharField(
         max_length=20,
         choices=GB_GENDER_CHOICE,
         default='gran'
     )
-
     gb_class = models.CharField(
         max_length=20,
         default='fighter'
     )
-
     gb_waifu = models.CharField(
         max_length=50,
         null=True,
         blank=True
     )
-
     facebook = models.CharField(
         max_length=100,
         null=True,
         blank=True
     )
-
     twitter = models.CharField(
         max_length=100,
         null=True,
         blank=True
     )
-
     discord = models.CharField(
         max_length=100,
         null=True,
         blank=True
     )
-
-    STATUS_CHOICE = (
+    AVAILABLE_CHOICE = (
         ('active', 'active'),
         ('inactive', 'inactive'),
     )
-
-    status = models.CharField(
+    available = models.CharField(
         max_length=20,
-        choices=STATUS_CHOICE,
+        choices=AVAILABLE_CHOICE,
         default='active'
     )
 
     def __str__(self):
         return self.name
 
-class Image(models.Model):
+
+class WeaponSummon(models.Model):
     name = models.CharField(
         max_length=50,
         null=False,
         blank=False,
         unique=True
     )
-
-    GB_CATAGORY_CHOICE = (
-        ('gbclass', 'Class'),
-        ('character', 'Character'),
-        ('weapon', 'Weapon' ),
+    TYPE_WEAPON_OR_SUMMON_CHOICE = (
+        ('weapon', 'Weapon'),
         ('summon', 'Summon'),
-        ('extra', 'Extra' ),
     )
-
-    catagory = models.CharField(
+    type_wep_sum = models.CharField(
         max_length=20,
-        choices=GB_CATAGORY_CHOICE,
-        default='Extra'
+        choices=TYPE_WEAPON_OR_SUMMON_CHOICE,
+        default='weapon'
     )
-
-    GB_GENDER_CHOICE = (
-        ('gran', 'Gran'),
-        ('deeja', 'Deeja'),
-        ('none', 'None')
+    ELEMENT_CHOICE = (
+        ('none', 'None Element'),
+        ('light', 'Light'),
+        ('dark', 'Dark'),
+        ('wind', 'Wind'),
+        ('fire', 'Fire'),
+        ('water', 'Water'),
+        ('earth', 'Earth'),
     )
-
-    gb_gender = models.CharField(
+    element = models.CharField(
         max_length=20,
-        choices=GB_GENDER_CHOICE,
-        default='None'
+        choices=ELEMENT_CHOICE,
+        default='none'
+    )
+    image_path = image_path =  models.CharField(
+        max_length=300,
+        null=False,
+        blank=False
     )
 
-    path =  models.CharField(
-        max_length=1000,
+    def __str__(self):
+        return self.name
+
+
+class Pool(models.Model):
+    member = models.ForeignKey(
+        Member,
+        on_delete=models.CASCADE
+    )
+    weaponsummon = models.ForeignKey(
+        WeaponSummon,
+        on_delete=models.CASCADE
+    )
+    TYPE_WEAPON_OR_SUMMON_CHOICE = (
+        ('weapon', 'Weapon'),
+        ('summon', 'Summon'),
+    )
+    type_wep_sum = models.CharField(
+        max_length=20,
+        choices=TYPE_WEAPON_OR_SUMMON_CHOICE,
+        default='weapon'
+    )
+    image_path =  models.CharField(
+        max_length=20,
+        null=False,
+        blank=False
+    )
+    ORDER_CHOICE = (
+        ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
+        ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'),
+    )
+    order =  models.CharField(
+        max_length=1,
+        choices=ORDER_CHOICE,
+        default='weapon'
+    )
+    STAR_CHOICE = (
+        ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
+    )
+    star =  models.CharField(
+        max_length=1,
+        choices=STAR_CHOICE,
+        default='weapon'
+    )
+
+    def __str__(self):
+        return self.member.name
+
+class Status(models.Model):
+    member = models.ForeignKey(
+        Member,
+        on_delete=models.CASCADE
+    )
+    ELEMENT_CHOICE = (
+        ('none', 'None Element'),
+        ('light', 'Light'),
+        ('dark', 'Dark'),
+        ('wind', 'Wind'),
+        ('fire', 'Fire'),
+        ('water', 'Water'),
+        ('earth', 'Earth'),
+    )
+    element = models.CharField(
+        max_length=20,
+        choices=ELEMENT_CHOICE,
+        default='none'
+    )
+    estimate_dmg = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False
+    )
+    weak_dmg = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        elementandname = f'{element}'
+        return elementandname
+
+
+class Friend(models.Model):
+    name = models.CharField(
+        max_length=50,
         null=False,
         blank=False,
         unique=True
     )
+    image_path =  models.CharField(
+        max_length=300,
+        null=False,
+        blank=False
+    )
 
     def __str__(self):
-        catagoryandname = f'{self.catagory}-{self.name}'
-        return catagoryandname
+        return self.name
+
+
+class Job(models.Model):
+    name = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False,
+        unique=True
+    )
+    image_path =  models.CharField(
+        max_length=300,
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        return self.name
