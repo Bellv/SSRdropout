@@ -69,7 +69,7 @@ class Member(models.Model):
         return self.name
 
 
-class WeaponSummon(models.Model):
+class Weaponsummon(models.Model):
     name = models.CharField(
         max_length=50,
         null=False,
@@ -115,7 +115,7 @@ class Pool(models.Model):
         on_delete=models.CASCADE
     )
     weaponsummon = models.ForeignKey(
-        WeaponSummon,
+        Weaponsummon,
         on_delete=models.CASCADE
     )
     TYPE_WEAPON_OR_SUMMON_CHOICE = (
