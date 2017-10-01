@@ -23,8 +23,8 @@ class Member(models.Model):
         blank=True
     )
     GB_GENDER_CHOICE = (
-        ('gran', 'gran'),
-        ('deeja', 'deeja'),
+        ('gran', 'Gran'),
+        ('deeja', 'Deeja'),
     )
     gb_gender = models.CharField(
         max_length=20,
@@ -76,8 +76,8 @@ class Job(models.Model):
         blank=False
     )
     GB_GENDER_CHOICE = (
-        ('gran', 'gran'),
-        ('deeja', 'deeja'),
+        ('gran', 'Gran'),
+        ('deeja', 'Deeja'),
     )
     gb_gender = models.CharField(
         max_length=20,
