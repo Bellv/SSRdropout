@@ -76,6 +76,14 @@ class Job(models.Model):
         blank=False,
         unique=True
     )
+    GB_GENDER_CHOICE = (
+        ('gran', 'Gran'),
+        ('deeja', 'Deeja'),
+    )
+    gb_gender = models.CharField(
+        max_length=20,
+        choices=GB_GENDER_CHOICE
+    )
     image_path =  models.CharField(
         max_length=300,
         null=False,
