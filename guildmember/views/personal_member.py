@@ -10,7 +10,11 @@ class PersonalMemberView(TemplateView):
     def retrive_member_data(self, member_id):
         member = Member.objects.get(id=member_id)
         try:
-            character = Job.objects.get(name=member.gb_class)
+            character = Job.objects.get(
+                name=member.gb_class,
+                gb_gender=member.gb_gender
+            )
+            
         except:
             character = None
 
@@ -25,7 +29,7 @@ class PersonalMemberView(TemplateView):
         member, character, waifu = self.retrive_member_data(
             self.kwargs['member_id']
         )
-
+        print (character)
         return render(
             request,
             self.template,

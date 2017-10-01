@@ -23,8 +23,8 @@ class Member(models.Model):
         blank=True
     )
     GB_GENDER_CHOICE = (
-        ('gran', 'Gran'),
-        ('deeja', 'Deeja'),
+        ('gran', 'gran'),
+        ('deeja', 'deeja'),
     )
     gb_gender = models.CharField(
         max_length=20,
@@ -33,7 +33,7 @@ class Member(models.Model):
     )
     gb_class = models.CharField(
         max_length=20,
-        default='fighter'
+        default='Fighter'
     )
     gb_waifu = models.CharField(
         max_length=50,
@@ -73,12 +73,11 @@ class Job(models.Model):
     name = models.CharField(
         max_length=50,
         null=False,
-        blank=False,
-        unique=True
+        blank=False
     )
     GB_GENDER_CHOICE = (
-        ('gran', 'Gran'),
-        ('deeja', 'Deeja'),
+        ('gran', 'gran'),
+        ('deeja', 'deeja'),
     )
     gb_gender = models.CharField(
         max_length=20,
@@ -90,8 +89,11 @@ class Job(models.Model):
         blank=False
     )
 
+    class Meta:
+        unique_together = ('name', 'gb_gender',)
+
     def __str__(self):
-        return self.name
+        return f'{self.name} - {self.gb_gender}'
 
 
 class Friend(models.Model):
