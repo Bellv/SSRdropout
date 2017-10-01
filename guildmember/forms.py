@@ -52,10 +52,10 @@ class InactiveMemberForm(forms.ModelForm):
         model = Member
         fields = [
             'name',
-            'available',
+            'status',
         ]
 
     def __init__(self, *args, **kwargs):
         super(InactiveMemberForm, self).__init__(*args, **kwargs)
-        self.fields['available'].widget.attrs['class'] = 'input'
-        self.fields['available'].label = 'Status'
+        self.fields['status'].widget.attrs['class'] = 'input'
+        self.fields['status'].label = 'Status'

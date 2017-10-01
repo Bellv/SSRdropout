@@ -8,7 +8,7 @@ class MemberListView(TemplateView):
     template = 'list_all_member.html'
 
     def get(self, request):
-        members = Member.objects.all().filter(available='active')
+        members = Member.objects.all().filter(status='active')
 
         return render(
             request,

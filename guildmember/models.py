@@ -55,18 +55,88 @@ class Member(models.Model):
         null=True,
         blank=True
     )
-    AVAILABLE_CHOICE = (
+    STATUS_CHOICE = (
         ('active', 'active'),
         ('inactive', 'inactive'),
     )
-    available = models.CharField(
+    status = models.CharField(
         max_length=20,
-        choices=AVAILABLE_CHOICE,
+        choices=STATUS_CHOICE,
         default='active'
     )
 
     def __str__(self):
         return self.name
+
+
+class Job(models.Model):
+    name = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False,
+        unique=True
+    )
+    image_path =  models.CharField(
+        max_length=300,
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Friend(models.Model):
+    name = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False,
+        unique=True
+    )
+    image_path =  models.CharField(
+        max_length=300,
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Power(models.Model):
+    member = models.ForeignKey(
+        Member,
+        on_delete=models.CASCADE
+    )
+    job = models.ForeignKey(Job)
+    ELEMENT_CHOICE = (
+        ('none', 'None Element'),
+        ('light', 'Light'),
+        ('dark', 'Dark'),
+        ('wind', 'Wind'),
+        ('fire', 'Fire'),
+        ('water', 'Water'),
+        ('earth', 'Earth'),
+    )
+    element = models.CharField(
+        max_length=20,
+        choices=ELEMENT_CHOICE,
+        default='none'
+    )
+    estimate_dmg = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False
+    )
+    weak_dmg = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        elementandname = f'{element}'
+        return elementandname
 
 
 class Weaponsummon(models.Model):
@@ -152,71 +222,3 @@ class Pool(models.Model):
 
     def __str__(self):
         return self.member.name
-
-class Status(models.Model):
-    member = models.ForeignKey(
-        Member,
-        on_delete=models.CASCADE
-    )
-    ELEMENT_CHOICE = (
-        ('none', 'None Element'),
-        ('light', 'Light'),
-        ('dark', 'Dark'),
-        ('wind', 'Wind'),
-        ('fire', 'Fire'),
-        ('water', 'Water'),
-        ('earth', 'Earth'),
-    )
-    element = models.CharField(
-        max_length=20,
-        choices=ELEMENT_CHOICE,
-        default='none'
-    )
-    estimate_dmg = models.CharField(
-        max_length=50,
-        null=False,
-        blank=False
-    )
-    weak_dmg = models.CharField(
-        max_length=50,
-        null=False,
-        blank=False
-    )
-
-    def __str__(self):
-        elementandname = f'{element}'
-        return elementandname
-
-
-class Friend(models.Model):
-    name = models.CharField(
-        max_length=50,
-        null=False,
-        blank=False,
-        unique=True
-    )
-    image_path =  models.CharField(
-        max_length=300,
-        null=False,
-        blank=False
-    )
-
-    def __str__(self):
-        return self.name
-
-
-class Job(models.Model):
-    name = models.CharField(
-        max_length=50,
-        null=False,
-        blank=False,
-        unique=True
-    )
-    image_path =  models.CharField(
-        max_length=300,
-        null=False,
-        blank=False
-    )
-
-    def __str__(self):
-        return self.name
