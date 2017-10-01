@@ -143,8 +143,7 @@ class Power(models.Model):
     )
 
     def __str__(self):
-        elementandname = f'{element}'
-        return elementandname
+        return f'{self.member.name} - {self.element}'
 
 
 class Weaponsummon(models.Model):
@@ -205,11 +204,6 @@ class Pool(models.Model):
         choices=TYPE_WEAPON_OR_SUMMON_CHOICE,
         default='weapon'
     )
-    image_path =  models.CharField(
-        max_length=20,
-        null=False,
-        blank=False
-    )
     ORDER_CHOICE = (
         ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
         ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'),
@@ -229,4 +223,4 @@ class Pool(models.Model):
     )
 
     def __str__(self):
-        return self.member.name
+        return f'{self.member.name} - {self.weaponsummon.name} - {self.order}'
