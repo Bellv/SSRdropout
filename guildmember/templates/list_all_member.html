@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 
-{% block headline %}
-Members
-{% endblock %}
-
 {% block body %}
 <div class="ui grid">
     <div class="row">
         <div class="eleven wide column">
             <div class="column">
                 <div class="ui raised segment">
-                <a class="ui red ribbon large label">SSRDroupout</a><span><b>บ้านทองเฟ้อ</b></span>
+                <a class="ui red ribbon large label">Members</a><span><b>บ้านทองเฟ้อ</b></span>
                     <div class="ui list">
                     {% for member in members %}
                         <div class="item" style="margin-top: 3%">

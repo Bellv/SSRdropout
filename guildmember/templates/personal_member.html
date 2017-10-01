@@ -1,14 +1,44 @@
 {% extends 'base.html' %}
 
-{% block headline %}
-Member
-{% endblock %}
-
 {% block body %}
- 
+<div class="ui grid">
+    <div class="row">
+        <div class="five wide column">
+            <div class="ui card">
+                <div class="image">
+                     {{message}} 
+                </div>
+                <div class="content">
+                    <a class="header">{{member.name}}</a>
+                    <div class="meta">
+                    <span class="date">{{member.description}}</span>
+                    </div>
+                    <div class="description">
+                        <p><b>Granblue Id:</b> {{member.gb_id}}<p>
+                        <p><b>Granblue Name:</b> {{member.gb_name}}<p>
+                        <p><b>Character:</b> {{member.gb_gender}}<p>
+                        <p><b>Class:</b> {{member.gb_class}}<p>
+                        <p><b>Facebook:</b> {{member.facebook}}<p>
+                        <p><b>Twitter:</b> {{member.twitter}}<p>
+                        <p><b>Discord:</b> {{member.discord}}<p>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <a>
+                    <i class="heart icon"></i>
+                        Waifu : {{waifu.name}}
+                    <img src="">
+                    </a>
+                </div>
+            </div>
+        </div>
+         <div class="four wide column">
+        </div>
+        <div class="five wide column">
+        </div>
+    </div>
+</div>
 {% endblock %}
-
-
 
 
 
