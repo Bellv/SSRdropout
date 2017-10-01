@@ -11,7 +11,6 @@ class AddMemberForm(forms.ModelForm):
             'gb_name',
             'gb_gender',
             'gb_id',
-            'gb_class',
             'gb_waifu',
             'facebook',
             'twitter',
