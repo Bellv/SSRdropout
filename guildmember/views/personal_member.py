@@ -29,7 +29,7 @@ class PersonalMemberView(TemplateView):
         member, character, waifu = self.retrive_member_data(
             self.kwargs['member_id']
         )
-        print (character)
+
         return render(
             request,
             self.template,
