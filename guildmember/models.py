@@ -211,7 +211,7 @@ class Pool(models.Model):
     order =  models.CharField(
         max_length=1,
         choices=ORDER_CHOICE,
-        default='weapon'
+        default='0'
     )
     STAR_CHOICE = (
         ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
@@ -219,7 +219,7 @@ class Pool(models.Model):
     star =  models.CharField(
         max_length=1,
         choices=STAR_CHOICE,
-        default='weapon'
+        default='0'
     )
 
     def __str__(self):

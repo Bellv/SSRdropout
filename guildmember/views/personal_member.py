@@ -32,7 +32,6 @@ class PersonalMemberView(TemplateView):
             {
                 'member': member,
                 'character': character,
-                'waifu': waifu,
-                'message': '<img src="https://gbf.wiki/images/2/27/Fighter_djeeta_icon.jpg">'
+                'waifu': waifu
             }
         )
