@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from ..models import Member, Job, Friend
+from ..models import Member, Job, Friend, Weaponsummon
 
 
 class PersonalMemberView(TemplateView):
@@ -14,7 +14,7 @@ class PersonalMemberView(TemplateView):
                 name=member.gb_class,
                 gb_gender=member.gb_gender
             )
-            
+
         except:
             character = None
 
@@ -30,12 +30,15 @@ class PersonalMemberView(TemplateView):
             self.kwargs['member_id']
         )
 
+        weapon = Weaponsummon.objects.get(name="Ascalon_Aqua")
         return render(
             request,
             self.template,
             {
                 'member': member,
                 'character': character,
-                'waifu': waifu
+                'waifu': waifu,
+                'weapon': weapon
+
             }
         )

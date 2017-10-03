@@ -3,7 +3,7 @@
 {% block body %}
 <div class="ui grid">
     <div class="row">
-        <div class="five wide column">
+        <div class="four wide column">
             <div class="ui card">
                 <div class="image">
                      <img src="{{character.image_path}}">
@@ -32,12 +32,47 @@
                 </div>
             </div>
         </div>
-         <div class="four wide column">
-        </div>
-        <div class="five wide column">
+        <div class="twelve wide column">
+            <div class="ui top attached tabular menu">
+                <a class="item active" data-tab="light">Light</a>
+                <a class="item" data-tab="dark">Dark</a>
+                <a class="item" data-tab="wind">Wind</a>
+                <a class="item" data-tab="fire">Fire</a>
+                <a class="item" data-tab="water">Water</a>
+                <a class="item" data-tab="earth">Earth</a>
+            </div>
+            <div class="ui bottom attached tab segment active" data-tab="light">
+                <div class="ui card" style="width: 20%; height: 120px">
+                    <a class="image" href="#">
+                        <img src="{{weapon.image_path}}">
+                        <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                    </a>
+                    <div class="content">
+                        <h4 style="margin-top: -10%">{{weapon.name}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="dark">
+                Dark
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="wind">
+                Dark
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="fire">
+                Dark
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="water">
+                Dark
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="earth">
+                Dark
+            </div>
+
         </div>
     </div>
 </div>
+
+{% include "scripts/menutab.html" %}
 {% endblock %}
 
 
