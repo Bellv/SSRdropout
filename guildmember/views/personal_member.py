@@ -18,27 +18,33 @@ class PersonalMemberView(TemplateView):
         except:
             character = None
 
-        try:
-            waifu = Friend.objects.get(name=member.gb_waifu)
-        except:
-            waifu = None
+        # try:
+        #     waifu = Friend.objects.get(name=member.gb_waifu)
+        # except:
+        #     waifu = None
 
-        return member, character, waifu
+        return member, character
 
     def get(self, request, **kwargs):
-        member, character, waifu = self.retrive_member_data(
+        member, character = self.retrive_member_data(
             self.kwargs['member_id']
         )
 
-        weapon = Weaponsummon.objects.get(name="Ascalon_Aqua")
+        weapon = Weaponsummon.objects.get(name="Sakura Wand")
+        weapon2 = Weaponsummon.objects.get(name="Sakura Wand")
+        weapon3 = Weaponsummon.objects.get(name="Sakura Wand")
+        summon = Weaponsummon.objects.get(name="Sakura Wand")
+
         return render(
             request,
             self.template,
             {
                 'member': member,
                 'character': character,
-                'waifu': waifu,
-                'weapon': weapon
+                'weapon': weapon,
+                'weapon2': weapon2,
+                'weapon3': weapon3,
+                'summon': summon
 
             }
         )

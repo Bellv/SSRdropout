@@ -178,6 +178,23 @@ class Weaponsummon(models.Model):
         choices=ELEMENT_CHOICE,
         default='none'
     )
+    TYPE_WEAPON_CHOICE = (
+        ('axe', 'Axe'),
+        ('sabre', 'Sabre'),
+        ('staff', 'Staff'),
+        ('gun', 'Gun'),
+        ('dagger', 'Dagger'),
+        ('bow', 'Bow'),
+        ('harp', 'Harp'),
+        ('spear', 'Spear'),
+        ('katana', 'Katana'),
+        ('melee', 'Melee'),
+    )
+    type_weapon = models.CharField(
+        max_length=10,
+        choices=TYPE_WEAPON_CHOICE,
+        default='weapon'
+    )
     image_path = image_path =  models.CharField(
         max_length=300,
         null=False,
@@ -194,26 +211,16 @@ class Pool(models.Model):
         on_delete=models.CASCADE
     )
     weaponsummon = models.ForeignKey(
-        Weaponsummon,
-        on_delete=models.CASCADE
+        Weaponsummon
     )
-    TYPE_WEAPON_OR_SUMMON_CHOICE = (
+    CATAGORY_WEAPON_OR_SUMMON_CHOICE = (
         ('weapon', 'Weapon'),
         ('summon', 'Summon'),
     )
-    type_wep_sum = models.CharField(
+    catagory_wep_sum = models.CharField(
         max_length=20,
-        choices=TYPE_WEAPON_OR_SUMMON_CHOICE,
+        choices=CATAGORY_WEAPON_OR_SUMMON_CHOICE,
         default='weapon'
-    )
-    ORDER_CHOICE = (
-        ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
-        ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'),
-    )
-    order =  models.CharField(
-        max_length=1,
-        choices=ORDER_CHOICE,
-        default='0'
     )
     STAR_CHOICE = (
         ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
@@ -221,6 +228,16 @@ class Pool(models.Model):
     star =  models.CharField(
         max_length=1,
         choices=STAR_CHOICE,
+        default='0'
+    )
+    ORDER_CHOICE = (
+        ('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),
+        ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'),
+        ('10', '10'),
+    )
+    order =  models.CharField(
+        max_length=2,
+        choices=ORDER_CHOICE,
         default='0'
     )
 
