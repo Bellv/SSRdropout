@@ -7,3 +7,4 @@ class PostListAPIView(ListAPIView):
     queryset = Post.objects.all()
 
 a
+f
