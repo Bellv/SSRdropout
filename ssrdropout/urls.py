@@ -20,6 +20,8 @@ from .views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/v1/api-view/', include('guildmember.urls', namespace='api-view')),
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^members/', include('guildmember.urls')),
 ]

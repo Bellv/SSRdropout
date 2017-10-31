@@ -1,7 +1,32 @@
 from rest_framework import serializers
 
-from posts.models import Post
-from .serializers import PostSerializer
+from . import models
 
-class PostListAPIView(ListAPIView):
-    queryset = Post.objects.all()
+class MemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Member
+        fields = (
+            'name',
+            'description',
+            'gb_name',
+            'gb_id',
+            'gb_gender',
+            'gb_class',
+            'gb_waifu',
+            'facebook',
+            'twitter',
+            'discord',
+            'status'
+        )
+        
+
+class PoolSerializer(serializers.ModelSerializer):
+    # members = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+    class Meta:
+        model = models.Pool
+        fields = (
+            # 'members',
+            'star',
+            'order'
+        )
