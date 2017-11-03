@@ -23,17 +23,5 @@ urlpatterns = [
     url(r'^(?P<member_id>[0-9]+)/(?P<member_name>[A-Za-z_/,\.-]+)/$',
         PersonalMemberView.as_view(),
         name='personal_member'
-    ),
-    url(r'^memberlist$',
-        guildmember_api.ListCreateMember.as_view(),
-        name='member_list'
-    ),
-    url(r'(?P<pk>\d+)$',
-        guildmember_api.RetrieveUpdateDestroyMember.as_view(),
-        name='member_detail'
-    ),
-    url(r'^poollist$',
-        guildmember_api.ListCreatePool.as_view(),
-        name='pool_list'
-    ),
+    )
 ]

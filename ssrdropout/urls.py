@@ -16,12 +16,23 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from rest_framework import routers
+from rest_framework import views
+
 from .views import IndexView
+
+from guildmember.views import guildmember_api
+
+router = routers.SimpleRouter()
+router.register(r'members', guildmember_api.MemberViewSet)
+router.register(r'pools', guildmember_api.PoolViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^api/v1/api-view/', include('guildmember.urls', namespace='api-view')),
+    url(r'^api/v1/api-view/', include('guildmember.urls', namespace='api-view-v1')),
+    url(r'^api/v2/', include(router.urls, namespace='api-view-v2')),
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^members/', include('guildmember.urls')),
 ]

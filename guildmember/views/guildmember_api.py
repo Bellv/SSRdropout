@@ -1,21 +1,16 @@
+from django.shortcuts import get_object_or_404
+
 from rest_framework import generics
+from rest_framework import viewsets
 
 from .. import models
 from .. import serializers
 
-
-class ListCreateMember(generics.ListCreateAPIView):
+class MemberViewSet(viewsets.ModelViewSet):
     queryset = models.Member.objects.all()
     serializer_class = serializers.MemberSerializer
 
-class RetrieveUpdateDestroyMember(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Member.objects.all()
-    serializer_class = serializers.MemberSerializer
-
-class ListCreatePool(generics.ListCreateAPIView):
+class PoolViewSet(viewsets.ModelViewSet):
     queryset = models.Pool.objects.all()
     serializer_class = serializers.PoolSerializer
 
-class RetrieveUpdateDestroyPool(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Pool.objects.all()
-    serializer_class = serializers.PoolSerializer
