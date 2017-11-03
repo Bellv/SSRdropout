@@ -40,8 +40,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + [
-    'rest_framework',
-    'django_filters',
+    # 'django_filters',
+    # 'rest_framework',
     'guildmember'
 ]
 
