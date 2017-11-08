@@ -26,13 +26,15 @@ from guildmember.views import guildmember_api
 router = routers.SimpleRouter()
 router.register(r'members', guildmember_api.MemberViewSet)
 router.register(r'pools', guildmember_api.PoolViewSet)
+router.register(r'powers', guildmember_api.PowerViewSet)
+router.register(r'wepsums', guildmember_api.WeaponsummonViewSet)
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^api/v1/api-view/', include('guildmember.urls', namespace='api-view-v1')),
-    url(r'^api/v2/', include(router.urls, namespace='api-view-v2')),
+    #url(r'^api/v1/api-view/', include('guildmember.urls', namespace='api-view-v1')),
+    url(r'^api/', include(router.urls, namespace='api-view-v1')),
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^members/', include('guildmember.urls')),
 ]

@@ -7,6 +7,16 @@ class MemberSerializer(serializers.ModelSerializer):
         model = models.Member
         fields = ('__all__')
 
+class WeaponsummonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Weaponsummon
+        fields = ('__all__')
+
+class PowerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Power
+        fields = ('__all__')
+
 class PoolSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Pool
