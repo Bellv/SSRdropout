@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from ..models import Member, Job, Friend, Weaponsummon
+from ..models import Member, Job, Friend, Weaponsummon, Power
 
 
 class PersonalMemberView(TemplateView):
@@ -9,6 +9,7 @@ class PersonalMemberView(TemplateView):
 
     def retrive_member_data(self, member_id):
         member = Member.objects.get(id=member_id)
+
         try:
             character = Job.objects.get(
                 name=member.gb_class,
@@ -18,15 +19,40 @@ class PersonalMemberView(TemplateView):
         except:
             character = None
 
-        # try:
-        #     waifu = Friend.objects.get(name=member.gb_waifu)
-        # except:
-        #     waifu = None
+        return member
 
-        return member, character
+    def retrive_waifu_data(self, member_id):
+        member = Member.objects.get(id=member_id)
+
+        try:
+            waifu = Friend.objects.get(name=member.gb_waifu)
+        except:
+            waifu = None
+
+        return waifu
+
+    def retrive_power_data(self, member_id):
+        member = Member.objects.get(id=member_id)
+
+        try:
+            power = Power.objects.get(member=member)
+        except:
+            power = None
+
+        return power
 
     def get(self, request, **kwargs):
-        member, character = self.retrive_member_data(
+        member = Member.objects.all()
+
+        member = self.retrive_member_data(
+            self.kwargs['member_id']
+        )
+
+        waifu = self.retrive_waifu_data(
+            self.kwargs['member_id']
+        )
+       
+        power = self.retrive_power_data(
             self.kwargs['member_id']
         )
 
@@ -40,7 +66,8 @@ class PersonalMemberView(TemplateView):
             self.template,
             {
                 'member': member,
-                'character': character,
+                'waifu': waifu,
+                'power': power,
                 'weapon': weapon,
                 'weapon2': weapon2,
                 'weapon3': weapon3,

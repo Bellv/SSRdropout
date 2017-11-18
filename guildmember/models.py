@@ -12,6 +12,11 @@ class Member(models.Model):
         null=True,
         blank=True
     )
+    gb_guild = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True
+    )
     gb_name = models.CharField(
         max_length=50,
         null=True,
@@ -212,6 +217,20 @@ class Pool(models.Model):
     )
     weaponsummon = models.ForeignKey(
         Weaponsummon
+    )
+    ELEMENT_CHOICE = (
+        ('none', 'None Element'),
+        ('light', 'Light'),
+        ('dark', 'Dark'),
+        ('wind', 'Wind'),
+        ('fire', 'Fire'),
+        ('water', 'Water'),
+        ('earth', 'Earth'),
+    )
+    element = models.CharField(
+        max_length=20,
+        choices=ELEMENT_CHOICE,
+        default='none'
     )
     CATAGORY_WEAPON_OR_SUMMON_CHOICE = (
         ('weapon', 'Weapon'),

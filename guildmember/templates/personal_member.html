@@ -6,7 +6,7 @@
         <div class="four wide column">
             <div class="ui card">
                 <div class="image">
-                     <img src="{{character.image_path}}">
+                     <img src="{{waifu.image_path}}">
                 </div>
                 <div class="content">
                     <a class="header" style="font-size: 22px">{{member.name}}</a>
@@ -24,10 +24,14 @@
                     </div>
                 </div>
                 <div class="extra content">
-                    <a>
-                    <i class="heart icon"></i>
-                        Waifu : {{member.gb_waifu}}
-                    <img src="">
+                        <a style="color:pink">
+                        <i class="heart icon" style="color: pink"></i>
+                            Waifu:  {{member.gb_waifu}}
+                        </a>
+                </div>
+                <div class="extra content">
+                        <p style="color: brown; font-size: 16px"><b>Main Damage: </b>{{power.estimate_dmg}}</p>
+                        <p style="color: brown; font-size: 16px"><b>Weak damage: </b>{{power.weak_dmg}}</p>
                     </a>
                 </div>
             </div>
@@ -48,7 +52,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{summon.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{summon.name}}</h4>
@@ -57,7 +61,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left:30%"></div>
                             </a>
                             <div class="content">
                                 <h4 class="weapon_img">{{weapon.name}}</h4>
@@ -68,7 +72,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
@@ -77,7 +81,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
@@ -86,36 +90,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
-                            </a>
-                            <div class="content">
-                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="ui card" style="height: 140px;">
-                            <a class="image" href="#">
-                                <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
-                            </a>
-                            <div class="content">
-                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
-                            </div>
-                        </div>
-                        <div class="ui card" style="height: 140px;">
-                            <a class="image" href="#">
-                                <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
-                            </a>
-                            <div class="content">
-                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
-                            </div>
-                        </div>
-                        <div class="ui card" style="height: 140px;">
-                            <a class="image" href="#">
-                                <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
@@ -126,7 +101,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
@@ -135,7 +110,36 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon2.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
+                            </a>
+                            <div class="content">
+                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
+                            </div>
+                        </div>
+                        <div class="ui card" style="height: 140px;">
+                            <a class="image" href="#">
+                                <img src="{{weapon2.image_path}}">
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
+                            </a>
+                            <div class="content">
+                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui card" style="height: 140px;">
+                            <a class="image" href="#">
+                                <img src="{{weapon2.image_path}}">
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
+                            </a>
+                            <div class="content">
+                                <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
+                            </div>
+                        </div>
+                        <div class="ui card" style="height: 140px;">
+                            <a class="image" href="#">
+                                <img src="{{weapon2.image_path}}">
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon2.name}}</h4>
@@ -144,7 +148,7 @@
                         <div class="ui card" style="height: 140px;">
                             <a class="image" href="#">
                                 <img src="{{weapon3.image_path}}">
-                                <div class="ui star rating" data-rating="0" style="margin-left: 22%"></div>
+                                <div class="ui star rating" data-rating="0" style="margin-left: 25%"></div>
                             </a>
                             <div class="content">
                                 <h4 style="margin-top: -10%; text-align: center">{{weapon3.name}}</h4>

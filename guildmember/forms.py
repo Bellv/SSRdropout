@@ -11,6 +11,7 @@ class AddMemberForm(forms.ModelForm):
             'gb_name',
             'gb_gender',
             'gb_id',
+            'gb_guild',
             'gb_waifu',
             'facebook',
             'twitter',
@@ -33,6 +34,9 @@ class AddMemberForm(forms.ModelForm):
 
         self.fields['gb_id'].widget.attrs['class'] = 'input'
         self.fields['gb_id'].label = 'Granblue Fantasy ID'
+
+        self.fields['gb_guild'].widget.attrs['class'] = 'input'
+        self.fields['gb_guild'].label = 'Granblue Fantasy Guid'
 
         self.fields['gb_waifu'].widget.attrs['class'] = 'input'
         self.fields['gb_waifu'].label = 'Waifu'
