@@ -1,0 +1,27 @@
+/* guildmember/personal_member */
+
+.member-head-font {
+    font-size: 22px;
+}
+
+.waifu-color {
+    color: pink;
+}
+
+.weak-dmg-color {
+    color: brown;
+    font-size: 16px;
+}
+
+.item-box {
+    height: 140px;
+}
+
+.in-box-margin {
+    margin-top: -10%;
+    text-align: center;
+}
+
+.box-star {
+    margin-left: 25%;
+}

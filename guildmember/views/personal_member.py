@@ -7,23 +7,19 @@ from ..models import Member, Job, Friend, Weaponsummon, Power
 class PersonalMemberView(TemplateView):
     template = 'personal_member.html'
 
-    def retrive_member_data(self, member_id):
-        member = Member.objects.get(id=member_id)
-
+    def retrive_job_image(self, member):
         try:
-            character = Job.objects.get(
+            job = Job.objects.get(
                 name=member.gb_class,
                 gb_gender=member.gb_gender
             )
 
         except:
-            character = None
+            job = None
 
-        return member
+        return job
 
-    def retrive_waifu_data(self, member_id):
-        member = Member.objects.get(id=member_id)
-
+    def retrive_waifu_data(self, member):
         try:
             waifu = Friend.objects.get(name=member.gb_waifu)
         except:
@@ -31,9 +27,7 @@ class PersonalMemberView(TemplateView):
 
         return waifu
 
-    def retrive_power_data(self, member_id):
-        member = Member.objects.get(id=member_id)
-
+    def retrive_power_data(self, member):
         try:
             power = Power.objects.get(member=member)
         except:
@@ -41,21 +35,30 @@ class PersonalMemberView(TemplateView):
 
         return power
 
+    def retrive_weapon_light(self, member):
+        weapon_light = []
+
+        try:
+            weapon_light_1 = Pool.objects.get(
+                member = member,
+                pool_element = 'light',
+                order = 1
+            )
+            weapon_light.append(weapon_light_1)
+        except:
+            power = None
+
+        return weapon_light
+
     def get(self, request, **kwargs):
-        member = Member.objects.all()
+        member = Member.objects.get(id=self.kwargs['member_id'])
 
-        member = self.retrive_member_data(
-            self.kwargs['member_id']
-        )
+        job = self.retrive_job_image(member)
+        waifu = self.retrive_waifu_data(member)
+        power = self.retrive_power_data(member)
 
-        waifu = self.retrive_waifu_data(
-            self.kwargs['member_id']
-        )
-       
-        power = self.retrive_power_data(
-            self.kwargs['member_id']
-        )
-
+        weapon_light = self.retrive_weapon_light(member)
+        print (weapon_light)
         weapon = Weaponsummon.objects.get(name="Sakura Wand")
         weapon2 = Weaponsummon.objects.get(name="Sakura Wand")
         weapon3 = Weaponsummon.objects.get(name="Sakura Wand")
@@ -66,6 +69,7 @@ class PersonalMemberView(TemplateView):
             self.template,
             {
                 'member': member,
+                'job': job,
                 'waifu': waifu,
                 'power': power,
                 'weapon': weapon,

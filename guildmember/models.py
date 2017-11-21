@@ -218,7 +218,7 @@ class Pool(models.Model):
     weaponsummon = models.ForeignKey(
         Weaponsummon
     )
-    ELEMENT_CHOICE = (
+    POOL_ELEMENT_CHOICE = (
         ('none', 'None Element'),
         ('light', 'Light'),
         ('dark', 'Dark'),
@@ -227,9 +227,9 @@ class Pool(models.Model):
         ('water', 'Water'),
         ('earth', 'Earth'),
     )
-    element = models.CharField(
+    pool_element = models.CharField(
         max_length=20,
-        choices=ELEMENT_CHOICE,
+        choices=POOL_ELEMENT_CHOICE,
         default='none'
     )
     CATAGORY_WEAPON_OR_SUMMON_CHOICE = (
@@ -260,5 +260,8 @@ class Pool(models.Model):
         default='0'
     )
 
+    class Meta:
+        unique_together = ('member', 'pool_element', 'order',)
+
     def __str__(self):
-        return f'{self.member.name} - {self.weaponsummon.name} - {self.order}'
+        return f'{self.member.name} - {self.pool_element} - {self.weaponsummon.name} - {self.order}'
