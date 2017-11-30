@@ -35,20 +35,20 @@ class PersonalMemberView(TemplateView):
 
         return power
 
-    def retrive_weapon_light(self, member):
-        weapon_light = []
+    # def retrive_weapon_light(self, member):
+    #     weapon_light = []
 
-        try:
-            weapon_light_1 = Pool.objects.get(
-                member = member,
-                pool_element = 'light',
-                order = 1
-            )
-            weapon_light.append(weapon_light_1)
-        except:
-            power = None
+    #     try:
+    #         weapon_light_1 = Pool.objects.get(
+    #             member = member,
+    #             pool_element = 'light',
+    #             order = 1
+    #         )
+    #         weapon_light.append(weapon_light_1)
+    #     except:
+    #         power = None
 
-        return weapon_light
+    #     return weapon_light
 
     def get(self, request, **kwargs):
         member = Member.objects.get(id=self.kwargs['member_id'])
@@ -57,12 +57,12 @@ class PersonalMemberView(TemplateView):
         waifu = self.retrive_waifu_data(member)
         power = self.retrive_power_data(member)
 
-        weapon_light = self.retrive_weapon_light(member)
-        print (weapon_light)
-        weapon = Weaponsummon.objects.get(name="Sakura Wand")
-        weapon2 = Weaponsummon.objects.get(name="Sakura Wand")
-        weapon3 = Weaponsummon.objects.get(name="Sakura Wand")
-        summon = Weaponsummon.objects.get(name="Sakura Wand")
+        # weapon_light = self.retrive_weapon_light(member)
+        # print (weapon_light)
+        weapon = Weaponsummon.objects.get(name="Aschallon Lumen")
+        weapon2 = Weaponsummon.objects.get(name="Luminiera Sword Omega")
+        weapon3 = Weaponsummon.objects.get(name="Cosmic Sword BAL")
+        summon = Weaponsummon.objects.get(name="Lucifer")
 
         return render(
             request,
